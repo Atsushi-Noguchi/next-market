@@ -4,7 +4,7 @@ import { jwtVerify } from "jose";
 export async function middleware(request: NextRequest) {
   //   const token = await request.headers.get("Authorization")?.split(" ")[1];
   const token =
-    "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vZ3VhdHVAZ21haWwuY29tIiwiZXhwIjoxNzAyMTgzOTkyfQ.uYaIu_XbnvBfy-w-5qUTQqbibKd8QMIOLislTq6QtSU";
+    "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vZ3VhdHVAZ21haWwuY29tIiwiZXhwIjoxNzAyMTkyNTM3fQ.3d4eHDrIoxVm9EMi7OasFlngSWHhEzg_dw8jlqNtOnU";
   if (!token) {
     return NextResponse.json({ message: "認証トークンがありません" });
   }
