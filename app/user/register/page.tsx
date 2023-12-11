@@ -18,9 +18,17 @@ const Register: React.FC = () => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // フォームの送信処理を実装する
+    const response = await fetch("http://localhost:3000/api/user/register", {
+      method: "POST",
+      body: JSON.stringify({ name, email, password }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
+    // レスポンスの処理を実装する
   };
 
   return (
