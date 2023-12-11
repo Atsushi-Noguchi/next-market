@@ -1,7 +1,11 @@
 import React from "react";
 
 const CreatePage: React.FC = () => {
-  return <div>{/* コンポーネントの中身をここに書く */}</div>;
+  return (
+    <div>
+      <h1>Hello</h1>
+    </div>
+  );
 };
 
 export default CreatePage;
