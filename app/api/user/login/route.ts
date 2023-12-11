@@ -26,7 +26,6 @@ export async function POST(request: NextRequest, context: NextFetchEvent) {
       .setProtectedHeader({ alg: "HS256" })
       .setExpirationTime("30m")
       .sign(secretKey);
-    console.log(token);
     return NextResponse.json({ message: "ログイン成功", data: user, token });
   } catch (err) {
     return NextResponse.json({ message: "ログイン失敗" });
