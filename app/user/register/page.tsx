@@ -20,16 +20,23 @@ const Register: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const response = await fetch("http://localhost:3000/api/user/register", {
-      method: "POST",
-      body: JSON.stringify({ name, email, password }),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    });
-    // レスポンスの処理を実装する
+    try {
+      const response = await fetch("http://localhost:3000/api/user/register", {
+        method: "POST",
+        body: JSON.stringify({ name, email, password }),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      const jsonData = await response.json();
+      alert(jsonData.message);
+      // レスポンスの処理を実装する
+    } catch (error) {
+      alert("登録に失敗しました");
+    }
   };
+  // レスポンスの処理を実装する
 
   return (
     <>
