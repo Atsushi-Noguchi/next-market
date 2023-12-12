@@ -27,7 +27,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/api/hello/route.ts"
+    "app/api/hello/route.ts",
+    "app/item/readsingle/[id]/page.jsx",
+    "app/api/item/readsingle/[id]/route.ts"
   ],
   "exclude": ["node_modules"]
 }

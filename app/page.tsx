@@ -19,7 +19,6 @@ const ReadAllItems = async () => {
   const allItems = await getAllitems();
   return (
     <div>
-      <h1>こんにちは</h1>
       {allItems.map((item: any) => (
         <div key={item._id}>
           <Image src={item.image} alt={item.title} width={500} height={300} />
