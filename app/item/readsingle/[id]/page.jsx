@@ -28,7 +28,7 @@ const ReadSingleItem = async (context) => {
         />
       </div>
       <div>
-        <h2>{singleItem.price}</h2>
+        <h2>¥{singleItem.price}</h2>
         <h2>{singleItem.title}</h2>
         <p>{singleItem.description}</p>
         <div>

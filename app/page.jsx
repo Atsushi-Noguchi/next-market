@@ -27,7 +27,7 @@ const ReadAllItems = async () => {
         <Link href={`/item/readsingle/${item._id}`} key={item._id}>
           <div key={item._id}>
             <Image src={item.image} alt={item.title} width={750} height={500} />
-            <h2>{item.price}</h2>
+            <h2>¥{item.price}</h2>
             <h2>{item.title}</h2>
             <p>{item.description}</p>
           </div>
