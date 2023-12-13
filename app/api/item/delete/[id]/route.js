@@ -1,15 +1,15 @@
-import { NextRequest, NextResponse, NextFetchEvent } from "next/server";
+import { NextResponse } from "next/server";
 import connectDB from "@/app/utils/database";
 import { ItemModel } from "@/app/utils/schemaModels";
 
-export async function DELETE(request: NextRequest, context: NextFetchEvent) {
+export async function DELETE(request, context) {
   const reqBody = await request.json(); // リクエストボディから更新データを取得
   try {
     await connectDB();
-    const id = request.nextUrl.pathname.split("/").pop();
-    const currentItem = await ItemModel.findById(id); // 現在のアイテムを取得
-    if (currentItem.email !== reqBody.email) {
-      await ItemModel.deleteOne({ _id: id });
+    const singleItem = await ItemModel.findById(context.params.id); // 更新対象のアイテムを取得
+
+    if (singleItem.email === reqBody.email) {
+      await ItemModel.deleteOne({ _id: context.params.id });
       return NextResponse.json({
         message: "アイテムの削除に成功しました",
       });

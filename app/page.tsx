@@ -1,11 +1,15 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const getAllitems = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/item/readall", {
-      cache: "no-store",
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/api/item/readall`,
+      {
+        cache: "no-store",
+      }
+    );
     const jsonData = await response.json();
     const allItems = jsonData.data;
     console.log(jsonData);
@@ -15,17 +19,27 @@ const getAllitems = async () => {
   }
 };
 
+type item = {
+  _id: string;
+  image: string;
+  title: string;
+  price: string;
+  description: string;
+};
+
 const ReadAllItems = async () => {
   const allItems = await getAllitems();
   return (
-    <div>
-      {allItems.map((item: any) => (
-        <div key={item._id}>
-          <Image src={item.image} alt={item.title} width={500} height={300} />
-          <h2>{item.price}</h2>
-          <h2>{item.title}</h2>
-          <p>{item.description}</p>
-        </div>
+    <div className="grid-container-in">
+      {allItems.map((item: item) => (
+        <Link href={`/item/readsingle/${item._id}`} key={item._id}>
+          <div key={item._id}>
+            <Image src={item.image} alt={item.title} width={750} height={500} />
+            <h2>{item.price}</h2>
+            <h2>{item.title}</h2>
+            <p>{item.description}</p>
+          </div>
+        </Link>
       ))}
     </div>
   );

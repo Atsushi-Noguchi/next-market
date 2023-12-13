@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/app/utils/database";
 import { ItemModel } from "@/app/utils/schemaModels";
 
-export async function GET(request: NextRequest, context: any) {
-  console.log(context.params.id);
+export async function GET(request, context) {
   try {
     await connectDB();
     const singleItems = await ItemModel.findById(context.params.id);

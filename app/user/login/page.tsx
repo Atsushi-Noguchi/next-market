@@ -18,14 +18,17 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     // フォームの送信処理をここに追加
     try {
-      const response = await fetch("http://localhost:3000/api/user/login", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_URL}/api/user/login`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
       const jsonData = await response.json();
       localStorage.setItem("token", jsonData.token);
       alert(jsonData.message);
@@ -37,6 +40,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <div>
+      <h1 className="page-title">ログイン</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="email"

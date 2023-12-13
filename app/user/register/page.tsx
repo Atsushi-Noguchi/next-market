@@ -21,14 +21,17 @@ const Register: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/api/user/register", {
-        method: "POST",
-        body: JSON.stringify({ name, email, password }),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_URL}/api/user/register`,
+        {
+          method: "POST",
+          body: JSON.stringify({ name, email, password }),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const jsonData = await response.json();
       alert(jsonData.message);
       // レスポンスの処理を実装する
@@ -40,7 +43,7 @@ const Register: React.FC = () => {
 
   return (
     <>
-      <h1>ユーザー登録</h1>
+      <h1 className="page-title">ユーザー登録</h1>
       <form onSubmit={handleSubmit}>
         <label>
           名前:
