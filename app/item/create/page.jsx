@@ -2,6 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import useAuth from "../../utils/useAuth";
+import ImgInput from "../../components/imgInput";
 
 const CreatePage = () => {
   const [title, setTitle] = useState("");
@@ -43,6 +44,7 @@ const CreatePage = () => {
     return (
       <div>
         <h1 className="page-title">アイテム作成</h1>
+        <ImgInput setImage={setImage} />
         <div>
           <form onSubmit={handleSubmit}>
             <input
