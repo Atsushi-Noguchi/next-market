@@ -36,7 +36,8 @@
     "app/api/item/readall/route.js",
     "app/item/delete/[id]/page.jsx",
     "app/item/create/page.jsx",
-    "app/layout.jsx"
+    "app/layout.jsx",
+    "app/page.jsx"
   ],
   "exclude": ["node_modules"]
 }
