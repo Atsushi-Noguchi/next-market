@@ -15,7 +15,7 @@ const CreatePage = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_URL}/api/item/readall`,
+        `${process.env.NEXT_PUBLIC_URL}/api/item/create`,
         {
           method: "POST",
           headers: {
