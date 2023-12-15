@@ -7,10 +7,10 @@ const Heder = () => {
       <div>
         <Link href="/">
           <Image
-            src="/header.svg"
+            src="/narfar.svg"
             alt="header-image"
-            width={1330}
-            height={148}
+            width={700}
+            height={100}
             priority
           />
         </Link>
